@@ -1,0 +1,79 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-family: 'Segoe UI', sans-serif
+
+
+header
+  background: #15ff0048
+  width: 100vw
+
+  & h1
+    padding: 1rem
+    text-align: center
+
+.container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.row
+  width: 380px
+  display: flex
+  flex-direction: column
+  text-align: center
+
+  & h2
+    text-align: center
+    margin: 1rem
+
+
+  & .form > form
+    width: 100%
+
+    & input
+      width: 100%
+      background: #849aa82d
+      border-radius: 30px
+      font-size: 1.1em
+      padding: 0.5rem 1rem
+
+    & .btn-login
+      background: #c8c8c8
+
+  & .btn
+    font-size: 1.3em
+    padding: .5rem 1rem
+    border-radius: 30px
+    width: 100%
+    border: none
+    transition: 300ms ease-in-out
+    &:hover
+      filter: brightness(0.8)
+
+  & .btn-facebook
+    background: #2566c8
+    color: #fff
+
+  & .btn-google
+    background: #e82a33
+    color: #fff
+
+  & .btn-twitter
+    background: #6dcdec
+    color: #fff
+
+  & p
+    margin: .8em
+
+.row-btn, .btn-login, input
+  margin: .5rem 0
+  border: none
+
+
+@media screen and ( max-width: 578px )
+  .row
+    max-width: 90%
+
