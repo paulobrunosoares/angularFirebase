@@ -1,11 +1,11 @@
 <header>
   <h1 class="header">Agenda @Angular</h1>
-  <img src="../../assets/img/agenda2.svg" alt="">
+  <img src="../../assets/img/agenda2.svg" alt="" />
 </header>
 
 <div class="container">
   <div class="row">
-    <h2>Bem vindo de volta!</h2>
+    <h2>Welcome Back!</h2>
 
     <div class="form">
       <form [formGroup]="loginForm">
@@ -35,14 +35,27 @@
         </button>
       </form>
     </div>
-    <div class="row">
+    <div class="row-p">
       <p>OR</p>
     </div>
+    <div class="row-btn">
+      <button type="button" class="btn btn-google" (click)="tryGoogleLogin()">
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.16,22 12.25,22C17.6,22 21.5,18.33 21.5,12.91C21.5,11.76 21.35,11.1 21.35,11.1V11.1Z"
+          />
+        </svg>
+        Login with Google
+      </button>
+    </div>
+
     <div class="row-btn">
       <button
         type="button"
         class="btn btn-facebook"
         (click)="tryFacebookLogin()"
+        [disabled]="true"
       >
         <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
           <path
@@ -56,23 +69,9 @@
     <div class="row-btn">
       <button
         type="button"
-        class="btn btn-google"
-        (click)="tryGoogleLogin()"
-      >
-        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.16,22 12.25,22C17.6,22 21.5,18.33 21.5,12.91C21.5,11.76 21.35,11.1 21.35,11.1V11.1Z"
-          />
-        </svg>
-        Login with Google
-      </button>
-    </div>
-    <div class="row-btn">
-      <button
-        type="button"
         class="btn btn-twitter"
         (click)="tryTwitterLogin()"
+        [disabled]="true"
       >
         <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
           <path
@@ -83,7 +82,7 @@
         Login with Twitter
       </button>
     </div>
-    <div class="row">
+    <div class="row-p">
       <p>No account yet? <a href="/register">Create an account</a></p>
     </div>
   </div>

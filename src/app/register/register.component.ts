@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../core/auth.service'
-import { Router, Params } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
 
-  registerForm!: FormGroup;
+  registerForm!: FormGroup
+  inputPassword: string = '';
+  inputRepeat: string = '';
   errorMessage: string = '';
   successMessage: string = '';
 
@@ -25,40 +28,20 @@ export class RegisterComponent {
    createForm() {
      this.registerForm = this.fb.group({
        email: ['', Validators.required ],
-       password: ['',Validators.required]
+       password: ['',Validators.required],
+       confirmPassword: ['', Validators.required]
      });
    }
 
-   tryFacebookLogin(){
-     this.authService.doFacebookLogin()
-     .then(res =>{
-       this.router.navigate(['/user']);
-     }, err => console.log(err)
-     )
-   }
-
-   tryTwitterLogin(){
-     this.authService.doTwitterLogin()
-     .then(res =>{
-       this.router.navigate(['/user']);
-     }, err => console.log(err)
-     )
-   }
-
-   tryGoogleLogin(){
-     this.authService.doGoogleLogin()
-     .then(res =>{
-       this.router.navigate(['/user']);
-     }, err => console.log(err)
-     )
-   }
 
    tryRegister(value:any){
+     console.log(value)
      this.authService.doRegister(value)
      .then(res => {
        console.log(res);
        this.errorMessage = "";
        this.successMessage = "Your account has been created";
+       this.registerForm.reset();
      }, err => {
        console.log(err);
        this.errorMessage = err.message;
