@@ -10,7 +10,8 @@
     <div class="form">
       <form [formGroup]="registerForm">
         <div class="form-group">
-          <input placeholder="Email address" type="email" formControlName="email" class="form-control"/>
+          <input [(ngModel)]="inputEmail"
+           placeholder="Email address" type="email" formControlName="email" class="form-control"/>
         </div>
         <div class="form-group">
           <input [(ngModel)]="inputPassword" placeholder="Password" type="password" class="form-control" formControlName="password"/>
@@ -21,8 +22,10 @@
         <label class="error">{{ errorMessage }}</label>
         <label class="success">{{ successMessage }}</label>
 
+        <div *ngFor="checkInput()">
+        </div>
         <button
-          *ngIf="inputPassword.length > 5 && inputRepeat.length > 3 && inputPassword == inputRepeat"
+          *ngIf="checkInput()"
           type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-register">
           Register
         </button>
