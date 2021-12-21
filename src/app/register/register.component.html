@@ -26,10 +26,13 @@
         </div>
         <button
           *ngIf="checkInput()"
-          type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-register">
+          type="submit" (click)="tryRegister(registerForm.value)"
+          class="btn"
+          [ngClass]="{'activeRegister': validation, 'btn-register': !validation }">
           Register
         </button>
       </form>
+
     </div>
     <div class="row">
       <p>Already have an account? <a href="/login">Login</a></p>

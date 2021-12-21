@@ -32,7 +32,8 @@ header
   align-items: center
 
 .row
-  width: 380px
+  width: 90%
+  max-width: 400px
   display: flex
   flex-direction: column
   text-align: center
@@ -53,6 +54,14 @@ header
 
     & .btn-login
       background: #c8c8c8
+
+    & .activeLogin
+      background: $three-color
+      margin: .5rem 0
+
+    & .forgotPassword
+      width: 100%
+      text-align: right
 
   & .btn
     font-size: 1.3em
@@ -100,6 +109,3 @@ header
   header
     & h1
       font-size: 2.5rem
-
-  .row
-    max-width: 90%

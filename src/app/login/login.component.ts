@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../core/auth.service'
-import { Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,10 @@ export class LoginComponent {
   loginForm!: FormGroup;
   errorMessage: string = '';
 
+  email: string = '';
+  password: string = '';
+  isVerification = false;
+
   constructor(
     public authService: AuthService,
     private router: Router,
@@ -20,6 +25,12 @@ export class LoginComponent {
   ) {
     this.createForm();
   }
+
+  checkInput(): boolean{
+    return this.isVerification =
+    this.email.includes('@'&&'.com') &&
+    this.password.length > 5
+   }
 
   createForm() {
     this.loginForm = this.fb.group({

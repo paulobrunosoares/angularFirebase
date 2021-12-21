@@ -1,10 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-//import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class AuthService {
+
+  errorCode = '';
+  errorMessage = '';
+  successMessage = '';
 
   constructor(
    public afAuth: AngularFireAuth
@@ -85,4 +89,20 @@ export class AuthService {
   }
 
 
+  async forgotPassword() {
+    let result = '';
+    await firebase.auth().sendPasswordResetEmail("")
+        .then(() => {
+          alert('Verifique sua caixa de e-mail.')
+          result = 'Verifique sua caixa de e-mail.'
+            //navigator.navigate('tipoLogin')
+        })
+    .catch((error) => {
+        this.errorCode = error.code;
+        result = error.message;
+         console.log(this.errorCode);
+         console.log(this.errorMessage);
+    });
+    return result
+}
 }

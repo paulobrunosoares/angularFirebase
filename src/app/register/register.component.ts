@@ -47,7 +47,6 @@ export class RegisterComponent {
     if(this.validation){
       this.authService.doRegister(value)
        .then(res => {
-//         console.log(res);
          this.errorMessage = "";
          this.successMessage = "Your account has been created";
          this.registerForm.reset();

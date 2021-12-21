@@ -3,6 +3,8 @@
   <img src="../../assets/img/agenda2.svg" alt="" />
 </header>
 
+<app-modal-ref [hidden]="true"></app-modal-ref>
+
 <div class="container">
   <div class="row">
     <h2>Welcome Back!</h2>
@@ -15,6 +17,7 @@
             type="email"
             formControlName="email"
             class="form-control"
+            [(ngModel)]="email"
           />
         </div>
         <div class="form-group">
@@ -23,16 +26,26 @@
             type="password"
             class="form-control"
             formControlName="password"
+            [(ngModel)]="password"
           />
           <label class="error">{{ errorMessage }}</label>
         </div>
+        <div *ngFor="checkInput()"></div>
         <button
           type="submit"
           (click)="tryLogin(loginForm.value)"
-          class="btn btn-login"
+          [ngClass]="{
+            'btn': true,
+           'activeLogin': isVerification,
+           'btn-login': !isVerification }"
         >
           Login
         </button>
+        <div class="forgotPassword">
+          <a [routerLink]="['/redefined']">forgotPassword</a>
+
+        </div>
+
       </form>
     </div>
     <div class="row-p">
