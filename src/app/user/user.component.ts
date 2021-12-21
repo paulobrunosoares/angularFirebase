@@ -22,15 +22,17 @@ export class UserComponent implements OnInit{
     private route: ActivatedRoute,
     private location : Location,
     private fb: FormBuilder
-  ) {
-
-  }
+  ) {  }
 
   ngOnInit(): void {
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
         this.user = data;
+        console.log(this.user);
+        if(data.image == "https://via.placeholder.com/400x300"){
+          this.user.image = "../../assets/img/imgUser.jpeg"
+        }
         this.createForm(this.user.name);
       }
     })

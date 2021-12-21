@@ -52,22 +52,26 @@ export class ModalRefComponent implements OnInit {
 
 
   async forgotPassword(email:any) {
-    let result = '';
-    await firebase.auth().sendPasswordResetEmail(email)
-        .then(() => {
-          this.successMessage = 'Verifique sua caixa de e-mail ou span'
-          this.errorMessage = ''
-          //alert('Verifique sua caixa de e-mail.')
-          //navigator.navigate('tipoLogin')
-        })
-    .catch((error) => {
-  //        this.errorCode = error.code;
-  //         console.log(this.errorCode);
-        result = error.message;
-          this.errorMessage = result
-          this.successMessage = ''
+    if(this.isVerification){
 
-    });
+      let result = '';
+      await firebase.auth().sendPasswordResetEmail(email)
+          .then(() => {
+            this.successMessage = 'Verifique sua caixa de e-mail ou span'
+            this.errorMessage = ''
+            //alert('Verifique sua caixa de e-mail.')
+            //navigator.navigate('tipoLogin')
+          })
+      .catch((error) => {
+    //        this.errorCode = error.code;
+    //         console.log(this.errorCode);
+          result = error.message;
+            this.errorMessage = result
+            this.successMessage = ''
+
+      });
+
+    }
   }
 
 

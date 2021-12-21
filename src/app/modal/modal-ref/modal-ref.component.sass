@@ -36,20 +36,15 @@ header
 .container
   display: flex
   flex-direction: column
-  justify-content: center
   background: #dddcdc
   width: 90vw
   max-width: 320px
-  height: 70%
+  min-height: 70%
   border-radius: 15px
-  // top: 45px
-  // left: calc( (100vw / 2) - 160px )
 
   & .closeModal
     text-align: right
-    right: 10px
-    position: relative
-    top: -20px
+    margin: .5rem
 
     & .btn-close
       width: 20px
@@ -67,14 +62,14 @@ header
   align-items: center
   width: 100%
   max-width: 320px
-  top: 0px
 
   & .header
     border-bottom: 1px solid #cccaca
     width: 100%
     text-align: center
     position: relative
-    top: -15px
+    margin-bottom: 10px
+    color: #f02525
 
 
   & p
@@ -83,6 +78,8 @@ header
 
   & .forns
     width: 90%
+    display: flex
+    flex-direction: column
 
     & form
       display: flex
@@ -93,6 +90,7 @@ header
       height: 150px
       border: 1px solid #cccaca
       border-radius: 10px
+      margin-bottom: 20px
 
       & .form-group
         display: flex
@@ -115,6 +113,7 @@ header
       & .activeRedefined
         background: $three-color
         margin: .5rem 0
+        cursor: pointer
 
 .btn
   font-size: 1em
@@ -126,7 +125,6 @@ header
   display: flex
   align-items: center
   justify-content: center
-  cursor: pointer
   background: #c8c8c8
 
 .acttiveRedefined, .btnRedefined, input
@@ -138,7 +136,11 @@ header
 .success
   color: green
 
-@media screen and ( max-width: 576px )
+@media screen and ( max-width: 380px )
   header
     & h1
       font-size: 2.5rem
+
+  .container
+    min-height: 60%
+

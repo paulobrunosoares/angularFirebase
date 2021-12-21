@@ -11,13 +11,19 @@
       <form [formGroup]="registerForm">
         <div class="form-group">
           <input [(ngModel)]="inputEmail"
-           placeholder="Email address" type="email" formControlName="email" class="form-control"/>
+           placeholder="E-mail address" type="email" formControlName="email" class="form-control"/>
         </div>
         <div class="form-group">
           <input [(ngModel)]="inputPassword" placeholder="Password" type="password" class="form-control" formControlName="password"/>
+          <div class="info">
+          <p>At least 6 characters</p>
+          </div>
         </div>
         <div class="form-group">
           <input [(ngModel)]="inputRepeat" placeholder="Repeat password" type="password" class="form-control" formControlName="confirmPassword"/>
+          <div class="info">
+          <p>At least 6 characters</p>
+          </div>
         </div>
         <label class="error">{{ errorMessage }}</label>
         <label class="success">{{ successMessage }}</label>
@@ -34,8 +40,8 @@
       </form>
 
     </div>
-    <div class="row">
-      <p>Already have an account? <a href="/login">Login</a></p>
+    <div class="info">
+      <label>Already have an account? <a href="/login">Login</a></label>
     </div>
   </div>
 </div>
